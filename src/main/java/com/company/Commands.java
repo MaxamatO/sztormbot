@@ -31,7 +31,7 @@ public class Commands extends ListenerAdapter {
     private final String[] commands = {"!!join", "!!quit", "!!help", "!!pomocy", "!!legends", "!!aurora", "!!klasa", "!!mkit", "!!test", "!!louda", "!!yt", "!!yyy",
     "!!sprawdzam", "!!olivka", "!!damage", "!!stop", "!!skip", "!!queue"};
     private final String BINDY = "C:\\Users\\Maks\\home\\_java\\discord\\sztorm\\src\\main\\resources\\bindy\\";
-    public String prefix = System.getenv().get("PREFIX");
+    public String prefix = System.getenv("PREFIX");
 
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {

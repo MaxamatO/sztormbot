@@ -11,7 +11,7 @@ import javax.security.auth.login.LoginException;
 public class Main {
 
     public static void main(String[] args) throws LoginException {
-        JDABuilder jda = JDABuilder.createDefault(System.getenv().get("TOKEN")).enableCache(CacheFlag.VOICE_STATE);
+        JDABuilder jda = JDABuilder.createDefault(System.getenv("TOKEN")).enableCache(CacheFlag.VOICE_STATE);
         jda.setActivity(Activity.watching("!!"));
         jda.addEventListeners(new Commands());
         jda.build();
