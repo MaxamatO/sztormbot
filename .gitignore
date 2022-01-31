@@ -21,9 +21,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+<<<<<<< HEAD
 
 .env
 src/main/java/com/company/Secret.java
 /build
 
 
+=======
+>>>>>>> f3122fde9fa4e1a473c0b1305791deeee9e1b188
