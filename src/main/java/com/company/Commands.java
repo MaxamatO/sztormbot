@@ -44,10 +44,6 @@ public class Commands extends ListenerAdapter {
         AudioManager audioManager = event.getGuild().getAudioManager();
 
 
-
-
-
-
         if (event.getAuthor().isBot()) {
             return;
         }
