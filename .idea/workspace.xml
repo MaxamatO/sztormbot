@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c380380-9261-4d4e-b68b-8f4846fdc97a" name="Default Changelist" comment="init">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/company/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,10 +137,15 @@
       <recent name="C:\Users\Maks\home\_java\discord\sztorm\src\main\resources\bindy" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Build jar">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="16" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <envs>
+        <env name="TOKEN" value="&quot;OTMzNzYyNDk3NzEyODk0MDUz.YemQFw.HUIJdsu3FNTNfpvIo_sjKLdG78w&quot;" />
+        <env name="PREFIX" value="!!" />
+        <env name="OWNER_ID" value="291274570311270401" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="sztorm.main" />
       <extension name="coverage">
@@ -268,7 +274,21 @@
       <option name="project" value="LOCAL" />
       <updated>1643661912272</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="init">
+      <created>1643663638611</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1643663638612</updated>
+    </task>
+    <task id="LOCAL-00010" summary="init">
+      <created>1643663895749</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1643663895749</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
