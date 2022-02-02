@@ -111,7 +111,7 @@ public class Commands extends ListenerAdapter {
             damage(event, channel);
         }
         //Yt
-        if (args[0].equalsIgnoreCase((prefix + "play"))) {
+        if (args[0].equalsIgnoreCase((prefix + "play"))||args[0].equalsIgnoreCase((prefix + "yt"))) {
             String link = "";
             if(args.length>2){
                 String[] songName = Arrays.copyOfRange(args, 1, args.length);

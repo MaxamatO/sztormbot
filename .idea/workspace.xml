@@ -141,8 +141,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="16" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <envs>
-        <env name="TOKEN" value="OTMzNzYyNDk3NzEyODk0MDUz.YemQFw.puNZ_OwpjPh-ZED227DXyXhGQUQ" />
-        <env name="PREFIX" value="!!" />
+        <env name="TOKEN" value="OTMzNzYyNDk3NzEyODk0MDUz.YemQFw.hPpzqu0GTRzwWxIkK3Qcr2kptd8" />
         <env name="OWNER_ID" value="291274570311270401" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
@@ -336,7 +335,49 @@
       <option name="project" value="LOCAL" />
       <updated>1643667821965</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="init">
+      <created>1643668725002</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1643668725002</updated>
+    </task>
+    <task id="LOCAL-00019" summary="init">
+      <created>1643671070325</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1643671070325</updated>
+    </task>
+    <task id="LOCAL-00020" summary="init">
+      <created>1643793309358</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1643793309358</updated>
+    </task>
+    <task id="LOCAL-00021" summary="init">
+      <created>1643796542626</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1643796542626</updated>
+    </task>
+    <task id="LOCAL-00022" summary="init">
+      <created>1643796706178</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1643796706178</updated>
+    </task>
+    <task id="LOCAL-00023" summary="init">
+      <created>1643798439895</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1643798439895</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
