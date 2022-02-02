@@ -112,21 +112,15 @@ public class Commands extends ListenerAdapter {
         }
         //Yt
         if (args[0].equalsIgnoreCase((prefix + "play"))) {
-            join(event,audioManager,channel);
-            try {
-                Thread.sleep(2500);
-                String link = "";
-                if(args.length>2){
-                    String[] songName = Arrays.copyOfRange(args, 1, args.length);
-                    link = Arrays.toString(songName);
-                }
-                else{
-                    link = args[1];
-                }
-                yt(event, args, channel, link);
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
+            String link = "";
+            if(args.length>2){
+                String[] songName = Arrays.copyOfRange(args, 1, args.length);
+                link = Arrays.toString(songName);
             }
+            else{
+                link = args[1];
+            }
+            yt(event, args, channel, link, audioManager);
 
         }
         //Stop
@@ -184,6 +178,7 @@ public class Commands extends ListenerAdapter {
 
     @SuppressWarnings("ConstantConditions")
     private void join (@NotNull GuildMessageReceivedEvent event, AudioManager audioManager, TextChannel channel){
+
         if (!event.getGuild().getSelfMember().hasPermission(channel, Permission.VOICE_CONNECT)) {
             channel.sendMessage("I CAN'T JOOOOOIN").queue();
             return;
@@ -204,8 +199,6 @@ public class Commands extends ListenerAdapter {
             channel.sendMessage("Juz tu jestem").queue();
             return;
         }
-
-        PlayerManager.getInstance().loadAndPlay(channel, BINDY + "czesc.mp3");
 
     }
 
@@ -467,34 +460,35 @@ public class Commands extends ListenerAdapter {
         PlayerManager.getInstance().loadAndPlay(channel, BINDY + "damage.mp3", "fajny chinol");
     }
 
-    private void yt (@NotNull GuildMessageReceivedEvent event, String[]args, TextChannel channel, String link){
-        if (!isUrl(link)) {
-            System.out.println("przeszlo ifa");
-            link = "ytsearch: " + link;
+    @SuppressWarnings("ConstantConditions")
+    private void yt (@NotNull GuildMessageReceivedEvent event, String[] args, TextChannel channel, String link, AudioManager audioManager){
+        VoiceChannel voiceChannel = event.getMember().getVoiceState().getChannel();
+        audioManager.openAudioConnection(voiceChannel);
+        try{
+            Thread.sleep(2000);
+            if (!isUrl(link)) {
+                System.out.println("przeszlo ifa");
+                link = "ytsearch: " + link;
+            }
+
+            final Member self = event.getGuild().getSelfMember();
+            final GuildVoiceState selfVoiceState = self.getVoiceState();
+
+
+
+            final Member member = event.getMember();
+            final GuildVoiceState memberVoiceState = member.getVoiceState();
+
+            if (!memberVoiceState.inVoiceChannel()) {
+                channel.sendMessage("Mordo ale musisz byc gdzies, co ja jestem wrozka?").queue();
+                return;
+            }
+
+            PlayerManager.getInstance().loadAndPlay(channel, link, "");
+        } catch (InterruptedException ex){
+            Thread.currentThread().interrupt();
         }
 
-        final Member self = event.getGuild().getSelfMember();
-        final GuildVoiceState selfVoiceState = self.getVoiceState();
-
-        if (!selfVoiceState.inVoiceChannel()) {
-            channel.sendMessage("Mordo ale musze być z toba, tak to nie dziala").queue();
-            return;
-        }
-
-        final Member member = event.getMember();
-        final GuildVoiceState memberVoiceState = member.getVoiceState();
-
-        if (!memberVoiceState.inVoiceChannel()) {
-            channel.sendMessage("Mordo ale musisz byc gdzies, co ja jestem wrozka?").queue();
-            return;
-        }
-
-        if (!memberVoiceState.getChannel().equals(selfVoiceState.getChannel())) {
-            channel.sendMessage("Mordo ale musisz byc tam gdzie ja").queue();
-            return;
-        }
-
-        PlayerManager.getInstance().loadAndPlay(channel, link, "");
 
     }
 
