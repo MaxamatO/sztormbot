@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 public class Commands extends ListenerAdapter {
 
     private final String[] commands = {"!!join", "!!quit", "!!help", "!!pomocy", "!!legends", "!!aurora", "!!klasa", "!!mkit", "!!test", "!!louda", "!!yt", "!!yyy",
-    "!!sprawdzam", "!!olivka", "!!damage", "!!stop", "!!skip", "!!queue"};
+    "!!sprawdzam", "!!olivka", "!!damage", "!!stop", "!!skip", "!!queue", "!!ja"};
     private final String BINDY = "C:\\Users\\Maks\\home\\_java\\discord\\sztorm\\src\\main\\resources\\bindy\\";
     public String prefix = "!!";
 
@@ -133,6 +133,12 @@ public class Commands extends ListenerAdapter {
         //Teraz jest grane
         if(args[0].equalsIgnoreCase((prefix+ "queue"))){
             q(event, channel);
+        }
+        //Ja
+        if (args[0].equalsIgnoreCase(prefix+"ja")) {
+            final String messageId = event.getMessageId();
+            channel.deleteMessageById(messageId);
+            channel.sendMessage("Ja pytalem").queue();
         }
         // Brak
         if (args[0].toCharArray()[0] == prefix.toCharArray()[0] && !(Arrays.toString(commands).contains(args[0]))) {
