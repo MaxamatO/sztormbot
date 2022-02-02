@@ -112,16 +112,22 @@ public class Commands extends ListenerAdapter {
         }
         //Yt
         if (args[0].equalsIgnoreCase((prefix + "play"))) {
-            join(event, audioManager, channel);
-            String link = "";
-            if(args.length>2){
-                String[] songName = Arrays.copyOfRange(args, 1, args.length);
-                link = Arrays.toString(songName);
+            join(event,audioManager,channel);
+            try {
+                Thread.sleep(2500);
+                String link = "";
+                if(args.length>2){
+                    String[] songName = Arrays.copyOfRange(args, 1, args.length);
+                    link = Arrays.toString(songName);
+                }
+                else{
+                    link = args[1];
+                }
+                yt(event, args, channel, link);
+            } catch (InterruptedException ex) {
+                Thread.currentThread().interrupt();
             }
-            else{
-                link = args[1];
-            }
-            yt(event, args, channel, link);
+
         }
         //Stop
         if(args[0].equalsIgnoreCase(prefix+ "stop")){
