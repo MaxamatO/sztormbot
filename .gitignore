@@ -17,7 +17,7 @@
 *.zip
 *.tar.gz
 *.rar
-.idea/workspace.xml
+*.xml
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
@@ -30,3 +30,4 @@ src/main/java/com/company/Secret.java
 
 =======
 >>>>>>> f3122fde9fa4e1a473c0b1305791deeee9e1b188
+/.idea/
