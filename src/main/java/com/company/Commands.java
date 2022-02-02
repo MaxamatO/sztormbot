@@ -28,8 +28,8 @@ import java.util.regex.Pattern;
 
 public class Commands extends ListenerAdapter {
 
-    private final String[] commands = {"!!join", "!!quit", "!!help", "!!pomocy", "!!legends", "!!aurora", "!!klasa", "!!mkit", "!!test", "!!louda", "!!yt", "!!yyy",
-    "!!sprawdzam", "!!olivka", "!!damage", "!!stop", "!!skip", "!!queue", "!!ja"};
+    private final String[] commands = {"!!join", "!!quit", "!!help", "!!pomocy", "!!legends", "!!aurora", "!!klasa", "!!mkit", "!!test", "!!louda", "!!play", "!!yyy",
+    "!!sprawdzam", "!!olivka", "!!damage", "!!stop", "!!skip", "!!queue", "!!ja", "!!spierdalaj", "!!yt", "!!leave"};
     private final String BINDY = "C:\\Users\\Maks\\home\\_java\\discord\\sztorm\\src\\main\\resources\\bindy\\";
     public String prefix = "!!";
 
@@ -71,7 +71,7 @@ public class Commands extends ListenerAdapter {
             legends(event, channel);
         }
         //Odwoluje przyjaciela
-        if (args[0].equalsIgnoreCase(prefix + "quit")) {
+        if (args[0].equalsIgnoreCase(prefix + "quit")||args[0].equalsIgnoreCase(prefix + "leave")||args[0].equalsIgnoreCase(prefix + "spierdalaj")) {
             quit(event, audioManager, channel);
         }
         //Aurora
@@ -111,7 +111,8 @@ public class Commands extends ListenerAdapter {
             damage(event, channel);
         }
         //Yt
-        if (args[0].equalsIgnoreCase((prefix + "yt"))) {
+        if (args[0].equalsIgnoreCase((prefix + "play"))) {
+            join(event, audioManager, channel);
             String link = "";
             if(args.length>2){
                 String[] songName = Arrays.copyOfRange(args, 1, args.length);
