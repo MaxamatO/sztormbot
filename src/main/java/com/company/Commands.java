@@ -30,7 +30,16 @@ public class Commands extends ListenerAdapter {
 
     private final String[] commands = {"!!join", "!!quit", "!!help", "!!pomocy", "!!legends", "!!aurora", "!!klasa", "!!mkit", "!!test", "!!louda", "!!play", "!!yyy",
     "!!sprawdzam", "!!olivka", "!!damage", "!!stop", "!!skip", "!!queue", "!!ja", "!!spierdalaj", "!!yt", "!!leave"};
-    private final String BINDY = "C:\\Users\\Maks\\home\\_java\\discord\\sztorm\\src\\main\\resources\\bindy\\";
+    private final String trzymajciesze = System.getenv("trzymajciesze");
+    private final String yy = System.getenv("yy");
+    private final String sprawdzam = System.getenv("sprawdzam");
+    private final String pierwszaklasa = System.getenv("pierwszaklasa");
+    private final String mkit = System.getenv("mkit");
+    private final String olivka = System.getenv("olivka");
+    private final String louda = System.getenv("loudac");
+    private final String legends = System.getenv("legends");
+    private final String czesc = System.getenv("czesc");
+    private final String aurora = System.getenv("aurora");
     public String prefix = "!!";
 
     @Override
@@ -173,7 +182,7 @@ public class Commands extends ListenerAdapter {
             return;
         }
 
-        PlayerManager.getInstance().loadAndPlay(channel, BINDY + "loudac.mp3", "louda");
+        PlayerManager.getInstance().loadAndPlay(channel,louda,  "louda");
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -199,6 +208,7 @@ public class Commands extends ListenerAdapter {
             channel.sendMessage("Juz tu jestem").queue();
             return;
         }
+        PlayerManager.getInstance().loadAndPlay(channel, czesc, "siema byki");
 
     }
 
@@ -225,7 +235,7 @@ public class Commands extends ListenerAdapter {
             return;
         }
 
-        PlayerManager.getInstance().loadAndPlay(channel, BINDY + "legends.mp3", "mobajl legends");
+        PlayerManager.getInstance().loadAndPlay(channel, legends,"mobajl legends");
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -253,7 +263,7 @@ public class Commands extends ListenerAdapter {
             return;
         }
 
-        PlayerManager.getInstance().loadAndPlay(channel, BINDY + "aurora.mp3", "aurora");
+        PlayerManager.getInstance().loadAndPlay(channel, aurora,"aurora");
     }
     @SuppressWarnings("ConstantConditions")
     private void mkit (@NotNull GuildMessageReceivedEvent event, TextChannel channel){
@@ -278,7 +288,7 @@ public class Commands extends ListenerAdapter {
             return;
         }
 
-        PlayerManager.getInstance().loadAndPlay(channel, BINDY + "MKIT.mp3", "MKIT-900 PRO");
+        PlayerManager.getInstance().loadAndPlay(channel, mkit,"MKIT-900 PRO");
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -304,7 +314,7 @@ public class Commands extends ListenerAdapter {
             return;
         }
 
-        PlayerManager.getInstance().loadAndPlay(channel, BINDY + "pierwszaklasa.mp3", "Lekcja z Patrysiem");
+        PlayerManager.getInstance().loadAndPlay(channel,  pierwszaklasa, "Lekcja z Patrysiem");
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -336,7 +346,7 @@ public class Commands extends ListenerAdapter {
         musicManager.audioPlayer.stopTrack();
 
         channel.sendMessage("To spierdalam").queue();
-        PlayerManager.getInstance().loadAndPlay(channel, BINDY + "trzymajciesze.mp3");
+        PlayerManager.getInstance().loadAndPlay(channel,trzymajciesze);
         try {
             Thread.sleep(2500);
             audioManager.closeAudioConnection();
@@ -380,7 +390,7 @@ public class Commands extends ListenerAdapter {
             return;
         }
 
-        PlayerManager.getInstance().loadAndPlay(channel, BINDY + "yy.mp3", "yyyyyyyy");
+        PlayerManager.getInstance().loadAndPlay(channel, yy,"yyyyyyyy");
 }
 
     @SuppressWarnings("ConstantConditions")
@@ -406,7 +416,7 @@ public class Commands extends ListenerAdapter {
             return;
         }
 
-        PlayerManager.getInstance().loadAndPlay(channel, BINDY + "sprawdzam.mp3", "sprawdzam!");
+        PlayerManager.getInstance().loadAndPlay(channel, sprawdzam,"sprawdzam!");
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -432,7 +442,7 @@ public class Commands extends ListenerAdapter {
             return;
         }
 
-        PlayerManager.getInstance().loadAndPlay(channel, BINDY + "olivka.mp3", "OLIVKA BRASIL!");
+        PlayerManager.getInstance().loadAndPlay(channel, olivka,"OLIVKA BRASIL!");
     }
     @SuppressWarnings("ConstantConditions")
     private void damage(@NotNull GuildMessageReceivedEvent event, TextChannel channel) {
@@ -457,7 +467,7 @@ public class Commands extends ListenerAdapter {
             return;
         }
 
-        PlayerManager.getInstance().loadAndPlay(channel, BINDY + "damage.mp3", "fajny chinol");
+        PlayerManager.getInstance().loadAndPlay(channel, "problem","fajny chinol");
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -465,7 +475,7 @@ public class Commands extends ListenerAdapter {
         VoiceChannel voiceChannel = event.getMember().getVoiceState().getChannel();
         audioManager.openAudioConnection(voiceChannel);
         try{
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             if (!isUrl(link)) {
                 System.out.println("przeszlo ifa");
                 link = "ytsearch: " + link;
