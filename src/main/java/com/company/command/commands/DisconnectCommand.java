@@ -30,10 +30,10 @@ public class DisconnectCommand implements ICommand {
         }
         final Member selfMember = ctx.getSelfMember();
 
-        if(!selfMember.canInteract(target) || !selfMember.hasPermission(Permission.VOICE_MOVE_OTHERS)){
+        /*if(!selfMember.canInteract(target) || !selfMember.hasPermission(Permission.VOICE_MOVE_OTHERS)){
             channel.sendMessage("Nie moge  go rozlaczyc").queue();
             return;
-        }
+        }*/
 
          ctx.getGuild()
                  .kickVoiceMember(target)
