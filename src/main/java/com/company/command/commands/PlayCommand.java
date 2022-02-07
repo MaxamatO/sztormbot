@@ -10,6 +10,7 @@ import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.managers.AudioManager;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 
 public class PlayCommand implements ICommand {
@@ -72,6 +73,6 @@ public class PlayCommand implements ICommand {
 
     @Override
     public List<String> getAliases() {
-        return List.of("play", "graj", "yt", "song");
+        return Arrays.asList("play", "graj", "yt", "song");
     }
 }

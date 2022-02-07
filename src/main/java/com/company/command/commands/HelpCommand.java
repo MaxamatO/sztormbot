@@ -5,6 +5,7 @@ import com.company.command.CommandManager;
 import com.company.command.ICommand;
 import net.dv8tion.jda.api.entities.TextChannel;
 import java.lang.StringBuilder;
+import java.util.Arrays;
 import java.util.List;
 
 public class HelpCommand implements ICommand {
@@ -54,6 +55,6 @@ public class HelpCommand implements ICommand {
 
     @Override
     public List<String> getAliases() {
-        return List.of("commands", "cmds", "commandslist", "komendy", "pomocy", "pomoc", "hilfe");
+        return Arrays.asList("commands", "cmds", "commandslist", "komendy", "pomocy", "pomoc", "hilfe");
     }
 }

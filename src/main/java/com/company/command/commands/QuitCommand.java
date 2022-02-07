@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.managers.AudioManager;
 import net.dv8tion.jda.api.requests.restaction.MessageAction;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -66,6 +67,6 @@ public class QuitCommand implements ICommand {
 
     @Override
     public List<String> getAliases() {
-        return List.of( "quit", "leave", "wyjdz", "opusc");
+        return Arrays.asList( "quit", "leave", "wyjdz", "opusc");
     }
 }

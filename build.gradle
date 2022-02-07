@@ -37,7 +37,7 @@ build.mustRunAfter clean
 group = 'com.company.sztorm'
 version = '1.0-SNAPSHOT'
 description = 'sztorm'
-java.sourceCompatibility = JavaVersion.VERSION_16
+java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 jar {
     manifest{
