@@ -1,3 +1,6 @@
+//TODO: Restructure the whole code so that every command is in different file; use ICommand
+//TODO: Add Spotify API for Spotify song play
+//TODO: Add Show current playing song's link after !!play, remove it/make it blank after a minute
 package com.company;
 
 
@@ -28,6 +31,7 @@ import java.util.regex.Pattern;
 
 public class Commands extends ListenerAdapter {
 
+    //TODO: DO SOMETHING WITH THIS, IT IS UGLY
     private final String[] commands = {"!!join", "!!quit", "!!help", "!!pomocy", "!!legends", "!!aurora", "!!klasa", "!!mkit", "!!test", "!!louda", "!!play", "!!yyy",
     "!!sprawdzam", "!!olivka", "!!damage", "!!stop", "!!skip", "!!queue", "!!ja", "!!spierdalaj", "!!yt", "!!leave"};
     private final String trzymajciesze = System.getenv("trzymajciesze");
