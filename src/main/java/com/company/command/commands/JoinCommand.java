@@ -18,12 +18,12 @@ public class JoinCommand implements ICommand {
         final AudioManager audioManager = ctx.getGuild().getAudioManager();
 
         if (!ctx.getGuild().getSelfMember().hasPermission(channel, Permission.VOICE_CONNECT)) {
-            channel.sendMessage("I CAN'T JOOOOOIN").queue();
+            channel.sendMessage("Nie moge dolaczyc").queue();
             return;
         }
         VoiceChannel voiceChannel = ctx.getMember().getVoiceState().getChannel();
         if (voiceChannel == null) {
-            channel.sendMessage("Mordo gdzie ty").queue();
+            channel.sendMessage("Musisz byc na jakims kanale, zebym mogl dolaczyc").queue();
             return;
         }
         audioManager.openAudioConnection(voiceChannel);
@@ -31,13 +31,12 @@ public class JoinCommand implements ICommand {
         Member selfMember = ctx.getGuild().getSelfMember();
         GuildVoiceState selfVoiceState = selfMember.getVoiceState();
 
-        Member member = ctx.getMember();
 
         if (selfVoiceState.inVoiceChannel()) {
             channel.sendMessage("Juz tu jestem").queue();
             return;
         }
-        PlayerManager.getInstance().loadAndPlay(channel, System.getenv("czesc"), "siema byki");
+        PlayerManager.getInstance().loadAndPlay(channel, System.getenv("czesc"));
     }
 
     @Override
