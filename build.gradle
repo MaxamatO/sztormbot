@@ -41,7 +41,7 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 jar {
     manifest{
-        attributes 'Class-Path': '/libs/sztorm-1.0-SNAPSHOT.jar', 'Main-Class': 'com.company.Main'
+        attributes 'Class-Path': '/libs/sztorm-1.0-SNAPSHOT.jar', 'Bot-Class': 'com.company.Bot'
     }
 }
 
