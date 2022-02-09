@@ -1,11 +1,12 @@
-//TODO: Wysylanie linku do filmu, ktory jest grany
 //TODO: Granie z spotify
 package com.company;
 
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.entities.*;
+
 
 import javax.security.auth.login.LoginException;
+
 
 public class Main {
 

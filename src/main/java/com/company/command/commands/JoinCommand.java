@@ -10,12 +10,14 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.managers.AudioManager;
 
+@SuppressWarnings("ConstantConditions")
 public class JoinCommand implements ICommand {
 
     @Override
     public void handle(CommandContext ctx) {
         final TextChannel channel = ctx.getChannel();
         final AudioManager audioManager = ctx.getGuild().getAudioManager();
+
 
         if (!ctx.getGuild().getSelfMember().hasPermission(channel, Permission.VOICE_CONNECT)) {
             channel.sendMessage("Nie moge dolaczyc").queue();
@@ -26,6 +28,7 @@ public class JoinCommand implements ICommand {
             channel.sendMessage("Musisz byc na jakims kanale, zebym mogl dolaczyc").queue();
             return;
         }
+
         audioManager.openAudioConnection(voiceChannel);
 
         Member selfMember = ctx.getGuild().getSelfMember();

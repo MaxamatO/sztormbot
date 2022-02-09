@@ -18,9 +18,17 @@ public class DisconnectCommand implements ICommand {
         final Member member = ctx.getMember();
         final List<String> args = ctx.getArgs();
         final Member target = message.getMentionedMembers().get(0);
+        System.out.println(target);
+
+        System.out.println(message.getMentionedMembers().get(0).getId());
 
         if(message.getMentionedMembers().isEmpty()){
             channel.sendMessage("Nie wiem kogo rozlaczyc").queue();
+            return;
+        }
+
+        if(message.getMentionedMembers().get(0).getId().equals(System.getenv("OWNER_ID"))){
+            channel.sendMessage("Nie mozesz go rozlaczyc").queue();
             return;
         }
 
@@ -30,20 +38,12 @@ public class DisconnectCommand implements ICommand {
         }
         final Member selfMember = ctx.getSelfMember();
 
-        /*if(!selfMember.canInteract(target) || !selfMember.hasPermission(Permission.VOICE_MOVE_OTHERS)){
-            channel.sendMessage("Nie moge  go rozlaczyc").queue();
-            return;
-        }*/
-
          ctx.getGuild()
                  .kickVoiceMember(target)
                  .queue(
                          (__) -> channel.sendMessage("Wyrzucono").queue(),
                          (error) -> channel.sendMessageFormat("Nie udalo sie wyrzycuc %s", error.getMessage()).queue()
                  );
-
-
-
     }
 
     @Override

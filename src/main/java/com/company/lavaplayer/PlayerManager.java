@@ -52,7 +52,6 @@ public class PlayerManager {
 
     public void loadAndPlay(TextChannel channel, String trackPath, String user){
 
-        String envValue = System.getenv(trackPath);
 
 
         EmbedBuilder embed = new EmbedBuilder();
@@ -85,10 +84,9 @@ public class PlayerManager {
                 MessageAction messageAction = channel.sendMessage("W kolejce: ")
                         .append("").append("https://www.youtube.com/watch?v=").append(link).append("");
 
-                String editedMessage = channel.sendMessage("W kolejce: ")
-                        .append(trackTitle).toString();
 
-                messageAction.queue(message -> message.editMessage(editedMessage).queueAfter(20, TimeUnit.SECONDS));
+
+                messageAction.queue(message -> message.editMessage(("W kolejce: `"+(trackTitle)+"`")).queueAfter(20, TimeUnit.SECONDS));
                 musicManager.scheduler.queue(tracks.get(0));
 
 
