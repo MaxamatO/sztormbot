@@ -19,6 +19,9 @@ public class CommandManager {
         addCommand(new JoinCommand());
         addCommand(new QuitCommand());
         addCommand(new PlayCommand());
+        addCommand(new SkipCommand());
+        addCommand(new StopCommand());
+        addCommand(new QueueCommand());
     }
 
     private void addCommand(ICommand cmd) {

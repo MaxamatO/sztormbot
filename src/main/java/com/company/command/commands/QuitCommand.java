@@ -41,6 +41,7 @@ public class QuitCommand implements ICommand {
         final GuildMusicManager musicManager = PlayerManager.getInstance().getMusicManager(channel.getGuild());
 
         musicManager.audioPlayer.stopTrack();
+        musicManager.scheduler.queue.clear();
 
         MessageAction message = channel.sendMessage("Opuszczanie");
         message.queue(message1 -> message1.delete().queueAfter(7, TimeUnit.SECONDS));

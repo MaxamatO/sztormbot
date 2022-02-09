@@ -5,16 +5,21 @@ import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
+
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
+
 import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.requests.restaction.MessageAction;
 
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class PlayerManager {
 
@@ -45,7 +50,11 @@ public class PlayerManager {
         });
     }
 
-    public void loadAndPlay(TextChannel channel, String trackPath, String name){
+    public void loadAndPlay(TextChannel channel, String trackPath, String user){
+
+        String envValue = System.getenv(trackPath);
+
+
         EmbedBuilder embed = new EmbedBuilder();
         final GuildMusicManager musicManager = this.getMusicManager(channel.getGuild());
 
@@ -55,9 +64,13 @@ public class PlayerManager {
             public void trackLoaded(AudioTrack audioTrack) {
                 musicManager.scheduler.queue(audioTrack);
 
-                embed.setTitle("Pewnie mordeczko");
-                embed.setDescription(name);
+
+
+                embed.setTitle("Now playing");
+                embed.setDescription(audioTrack.getInfo().title);
+                embed.setImage("https://www.youtube.com/watch?v="+audioTrack.getIdentifier());
                 embed.setColor(Color.red);
+//                embed.setAuthor(user);
                 channel.sendMessage(embed.build()).queue();
 
             }
@@ -67,11 +80,15 @@ public class PlayerManager {
             @Override
             public void playlistLoaded(AudioPlaylist audioPlaylist) {
                 final List<AudioTrack> tracks = audioPlaylist.getTracks();
-                channel.sendMessage("W kolejce: `")
-                        .append(String.valueOf(1))
-                        .append("`  utworow z playlisty ")
-                        .queue();
+                String link = tracks.get(0).getIdentifier();
+                String trackTitle = tracks.get(0).getInfo().title;
+                MessageAction messageAction = channel.sendMessage("W kolejce: ")
+                        .append("").append("https://www.youtube.com/watch?v=").append(link).append("");
 
+                String editedMessage = channel.sendMessage("W kolejce: ")
+                        .append(trackTitle).toString();
+
+                messageAction.queue(message -> message.editMessage(editedMessage).queueAfter(20, TimeUnit.SECONDS));
                 musicManager.scheduler.queue(tracks.get(0));
 
 

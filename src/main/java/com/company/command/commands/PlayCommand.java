@@ -13,24 +13,29 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("ConstantConditions")
 public class PlayCommand implements ICommand {
+
+
     @Override
     public void handle(CommandContext ctx) {
-
         VoiceChannel voiceChannel = ctx.getMember().getVoiceState().getChannel();
         final AudioManager audioManager = ctx.getGuild().getAudioManager();
         audioManager.openAudioConnection(voiceChannel);
         List<String> args = ctx.getArgs();
         final TextChannel channel = ctx.getChannel();
-
-        String link = args.get(0);
+        String user = ctx.getMember().toString();
+        String link = args.toString();
+        String name = link;
 
         try{
             Thread.sleep(3000);
             if (!isUrl(link)) {
                 System.out.println("przeszlo ifa");
+                name = link;
                 link = "ytsearch: " + link;
             }
+            System.out.println(name);
 
             final Member self = ctx.getGuild().getSelfMember();
             final GuildVoiceState selfVoiceState = self.getVoiceState();
@@ -45,7 +50,8 @@ public class PlayCommand implements ICommand {
                 return;
             }
 
-            PlayerManager.getInstance().loadAndPlay(channel, link, "");
+
+            PlayerManager.getInstance().loadAndPlay(channel, link, user);
         } catch (InterruptedException ex){
             Thread.currentThread().interrupt();
         }
