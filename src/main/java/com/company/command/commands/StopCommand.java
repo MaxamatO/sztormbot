@@ -9,10 +9,6 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
-import net.dv8tion.jda.api.managers.AudioManager;
-import sun.jvm.hotspot.opto.Block;
-
-import java.util.List;
 import java.util.concurrent.BlockingQueue;
 
 @SuppressWarnings("ConstantConditions")
